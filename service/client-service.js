@@ -14,10 +14,32 @@ function crearCliente(nombre, email) {
   });
 }
 
+function eliminarCliente(id) {
+  console.log("eliminar a " + id);
+  return fetch(`${url}/${id}`, {
+    method: "DELETE",
+  });
+}
+
+function detalleCliente(id) {
+  return fetch(url + `/${id}`).then((respuesta) => respuesta.json());
+}
+
+function actualizarCliente(nombre, email, id) {
+  return fetch(url + `/${id}`, {
+    method: "PUT",
+    headers: { "Content-type": "application/json" },
+    body: JSON.stringify({ nombre, email }),
+  }).then((respuesta) => respuesta);
+}
+
 export const clientServices = {
   listaClientes,
   crearCliente,
+  eliminarCliente,
   idCliente,
+  detalleCliente,
+  actualizarCliente,
 };
 
 function idCliente() {

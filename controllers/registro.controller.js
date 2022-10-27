@@ -1,4 +1,4 @@
-import { clientServices, id } from "../service/client-service.js";
+import { clientServices } from "../service/client-service.js";
 
 clientServices.idCliente();
 
